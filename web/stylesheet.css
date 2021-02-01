@@ -1,0 +1,110 @@
+body {
+	font-family: "Inter", sans-serif;
+	background-color: rgb(25, 25, 25)
+}
+
+ul {
+	color: rgba(255, 255, 255, 0.55)
+}
+
+.minima-header {
+	margin: 50px;
+}
+
+.minima-section {
+	margin: 50px;
+}
+
+.minima-navigation-list {
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 25px 0 0 0
+}
+
+.minima-navigation-list li {
+	padding-right: 10px
+}
+
+.minima-footer-list {
+	list-style-type: none;
+	display: flex;
+	align-items: center;
+	margin: auto;
+	width: 100%
+}
+
+.minima-footer-list li {
+	padding-right: 10px
+}
+
+.minima-footer {
+	padding-bottom: 25px
+}
+
+.minima-image-list {
+	display: grid;
+	justify-content: space-around;
+	grid-template-columns: auto auto auto;
+	grid-gap: 25px
+}
+
+.minima-image-list img {
+	border-radius: 4px;
+	border: 2px solid rgb(255, 255, 255, 0.2);
+}
+
+
+.minima-compact-button {
+	padding-right: 10px;
+	border-right: 1px solid rgb(255, 255, 255, 0.2);
+	text-decoration: none;
+	font-weight: 500
+}
+
+.minima-compact-button:link {
+	color: rgb(64, 157, 130)
+}
+
+.minima-compact-button:visited {
+	color: rgb(64, 157, 130)
+}
+
+.minima-compact-button:hover {
+	text-decoration: underline;
+}
+
+.minima-h1 {
+	font-weight: 300;
+	opacity: 80%;
+	color: white
+}
+
+.minima-p {
+	font-weight: 400;
+	opacity: 45%;
+	color: white;
+}
+
+.minima-hr {
+	margin-top: 50px;
+	opacity: 20%;
+	background-color: rgba(255, 255, 255, 0.2)
+}
+
+@media only screen and (max-width: 1025px) {
+	.minima-image-list {
+		display: table;
+	}
+	
+	.minima-image-list div {
+		padding-bottom: 25px
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.minima-header {
+		padding-top: 50%;
+	}
+}

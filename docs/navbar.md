@@ -3,6 +3,6 @@
 * Modules
 
   * [Generator](ui.md)
-  * [Packages API](API.md)
+  * [Packages API](api.md)
   
 * [Making packages](package.md)

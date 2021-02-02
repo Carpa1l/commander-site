@@ -11,7 +11,7 @@ ___
 ___
 
 ## How package works
-When a package is being loaded by the server, the system will verify the package, whether it is correctly formatted is error-free. After that, the system will assign system packages like the [API](API), so the package can make use of the pre-built library to create awesome commands without being bloated in size.
+When a package is being loaded by the server, the system will verify the package, whether it is correctly formatted is error-free. After that, the system will assign system packages like the [API](api.md), so the package can make use of the pre-built library to create awesome commands without being bloated in size.
 
 When an administrator has joined the server, the system will send the administrator a list of packages to be created in UI, with their corresponding location (Player or Server).
 
@@ -36,7 +36,7 @@ return module
 ___
 
 ## Get started
-Thanks to our mature [API](API) for package to communicate with clients, making a package is much easier than what you think, a package can be made if you know how to use the API and know how to code in Luau.
+Thanks to our mature [API](api.md) for package to communicate with clients, making a package is much easier than what you think, a package can be made if you know how to use the API and know how to code in Luau.
 
 To get started, create a `ModuleScript` and paste the format above.
 
@@ -58,7 +58,7 @@ return module
 ```
 
 ### Listen to user requests
-When user clicked the button to request your package, the server will find the package and attempts to call the `.Execute` function with the `Type` argument set to `command`. This was implemented as packages can be ran when being loaded, so the package can register functions to events like PlayerAdded event via the [API](API). As a result, you should be having an if statement to ignore first run, which is:
+When user clicked the button to request your package, the server will find the package and attempts to call the `.Execute` function with the `Type` argument set to `command`. This was implemented as packages can be ran when being loaded, so the package can register functions to events like PlayerAdded event via the [API](api.md). As a result, you should be having an if statement to ignore first run, which is:
 
 ```lua
 if Type == "command" then
@@ -67,7 +67,7 @@ end
 ```
 
 ### Finding the target with the API
-We encourage using the [API](API)'s built-in player finder in order to save lines for your package. If your package is set to be in `Player`, the `Attachment` argument will be the user's target in string, in this case, you have to find whether the target exists in game or not.
+We encourage using the [API](api.md)'s built-in player finder in order to save lines for your package. If your package is set to be in `Player`, the `Attachment` argument will be the user's target in string, in this case, you have to find whether the target exists in game or not.
 
 !> If you are using a custom player finder, **DO NOT** use fuzzy search or any kind to find the player, it is recommended to compare whether the `Attachment` argument completely matches the player name.
 

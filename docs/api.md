@@ -52,14 +52,14 @@ Gets the player's instance with their name
 print(module.API.getPlayerWithName("nana_kon").Name)
 ```
 
-### API.checkAdmin(Player: instance)
+### API.checkAdmin(UserId: integer)
 !> This method yields depends on the situation
 
 Determines whether the player is an administrator or not, the method will yield if the administrator table contains usernames instead of identifiers.
 
 #### Example
 ```lua
-if module.API.checkAdmin(Player) then
+if module.API.checkAdmin(Player.UserId) then
 	print("They are an admin!")
 end
 ```

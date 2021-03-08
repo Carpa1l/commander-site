@@ -6,17 +6,20 @@ You do not need to initialise the API module in your package as the system loade
 ___
 
 ## Methods
-### API.sendModalToPlayer(Player: instance)
+### API.sendModalToPlayer(Player: player, Title: string|nil)
 Sends request to player to prompt an input modal, returns a `BindableEvent`, which will be fired when user submitted data. The bindable will return the user input.
 
 #### Example
 ```lua
-module.API.sendModalToPlayer(Player):Connect(function(Input)
+module.API.sendModalToPlayer(Player, "What is 1 + 1?"):Connect(function(Input)
 	print(Input)
 end)
+-- both works!
+local input = module.API.sendModalToPlayer(Player):Wait()
+print(Input)
 ```
 
-### API.sendListToPlayer(Player: instance, Title: string, Attachment: table)
+### API.sendListToPlayer(Player: player, Title: string, Attachment: table)
 Sends request to player to prompt a window with a list.
 
 #### Example
@@ -42,6 +45,14 @@ Gets the player's identifier with their name
 #### Example
 ```lua
 print(module.API.getUserIdWithName("nana_kon"))
+```
+
+### API.getCharacter(Player: instance) => Character
+Gets the player's character with their player instance
+
+#### Example
+```lua
+print(module.API.getCharacter(module.API.getPlayerWithName("nana_kon")).Humanoid.Health)
 ```
 
 ### API.getPlayerWithName(Player: string)
@@ -72,6 +83,18 @@ Returns a table of administrators
 for i,v in pairs(module.API.getAdmins()) do
 	print(v)
 end
+```
+
+### API.doThisToPlayers(Client: instance, Player: string, Callback: function) => Player
+!> Use this at your own risk, this should not be used in commands that can be extremely abusive.
+
+A lightweight callback processor, accepts "All", "Others", "Random" or the player name.
+
+#### Example
+```lua
+module.API.doThisToPlayers(Client, "All", function(Player)
+	print(Player.Name)
+end)
 ```
 
 ### API.getAvailableAdmins()

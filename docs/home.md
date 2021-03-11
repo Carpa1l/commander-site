@@ -7,7 +7,7 @@ Commander started back in 2019 as a fun project, but has progressed into more, t
 # Get Started
 You do not need knowledge of programming in order to set up Commander, we will walk you through it all! (Although knowing some is helpful!)
 
-You can install Commander by clicking [this link](https://devforum.roblox.com/uploads/short-url/5zWXiNSpdaRYaHrdkpb81dDyuvV.rbxl), or by visiting the [Developer Forum](https://devforum.roblox.com/t/dp1-commander-your-next-admin-system/503290), hosted by Roblox.
+You can install Commander by clicking [this link](https://github.com/va1kio/commander/blob/main/Commander.rbxm), or by visiting the [Developer Forum](https://devforum.roblox.com/t/dp1-commander-your-next-admin-system/503290), hosted by Roblox.
 
 Once downloaded, open a game in Roblox Studio.
 

@@ -7,12 +7,22 @@ ___
 ### Generator.newList(Name: string, Parent: instance)
 Creates a list container for you to place items in a list, returns a table with an event and a function.
 
+#### Example
+```lua
+Generator.newList("List1", UI)
+```
+
 #### Functions
 ##### listObject.addItem(Name: string, Content: string)
 Adds an item to the list.
 
 ### Generator.newWindow(Name: string, Title: string, Attachment: instance)
 Creates a window.
+
+#### Example
+```lua
+Generator.newWindow("Window1", "Hello world!")
+```
 
 #### Functions
 ##### windowObject.close()

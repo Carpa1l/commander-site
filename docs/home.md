@@ -21,7 +21,7 @@ Right click on your `Explorer` and press `Insert from File`.
 
 Locate your `Command.RBXM` file.
 
-Once Commander is insert your Explorer should look like this,
+Once Commander is inserted your Explorer should look like this,
 
 ![image](https://user-images.githubusercontent.com/76509586/110735087-b2638c00-81ee-11eb-9aea-6c9e5a57be29.png)
 

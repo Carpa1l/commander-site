@@ -49,7 +49,7 @@ To add administrators simply follow this format,
 ["Admins"] = {
 	[game.CreatorId] = "Owner",
 	["nana_kon"] = "Owner",
-	["USERNAME"] = "ADMINLEVEL"
+	["USERNAME"] = "ADMINLEVEL",
 },
 ```
 

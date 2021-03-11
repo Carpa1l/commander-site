@@ -13,10 +13,10 @@ Generator.newList("List1", UI)
 ```
 
 #### Functions
-##### listObject.addItem(Name: string, Content: string)
+#### listObject.addItem(Name: string, Content: string)
 Adds an item to the list.
 
-### Generator.newWindow(Name: string, Title: string, Attachment: instance)
+#### Generator.newWindow(Name: string, Title: string, Attachment: instance)
 Creates a window.
 
 #### Example
@@ -25,10 +25,10 @@ Generator.newWindow("Window1", "Hello world!")
 ```
 
 #### Functions
-##### windowObject.close()
+#### windowObject.close()
 Closes the window.
 
-##### windowObject.open()
+#### windowObject.open()
 Opens the window.
 
 #### windowObject.setTitle(Title: string)

@@ -16,7 +16,7 @@ Generator.newList("List1", UI)
 #### listObject.addItem(Name: string, Content: string)
 Adds an item to the list.
 
-#### Generator.newWindow(Name: string, Title: string, Attachment: instance)
+### Generator.newWindow(Name: string, Title: string, Attachment: instance)
 Creates a window.
 
 #### Example
@@ -36,6 +36,10 @@ Changes the window's title.
 
 ### Generator.newInputModal(Title: string)
 Creates an input modal.
+
+```lua
+Generator.newInputModal("Hello world!")
+```
 
 ### Generator.newPackageButton(Title: string, Description: string, Parent: instance, Callback: function)
 Creates a button for packages.

@@ -33,7 +33,7 @@ end
 return module
 ```
 
->! Packages can be ran when being loaded, so the package can register functions and events like PlayerAdded via the [API](api.md). **As a result, you should have an if statement to ignore the first run**, which is below.
+!> Packages can be ran when being loaded, so the package can register functions and events like PlayerAdded via the [API](api.md). **As a result, you should have an if statement to ignore the first run**, which is below.
 
 ```lua
 if Type == "command" then

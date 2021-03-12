@@ -2,7 +2,7 @@
 Packages are commands! This will teach you how to correctly make your own package, the example we will be doing will kick a player!
 
 Thanks to our mature [API](api.md) packages can easily communicate with the client. That being said, making a package is much easier than you think, a package can be made if you understand Luau and make use of our [API](api.md) and [UI Generator](ui.md)!
-
+___
 # How Packages Work
 When packages are being loaded by the server, the system will verify the package, whether it is correctly formatted and error-free. After that, the system will assign system packages like the [API](api.md), so the package can make use of the pre-built libraary to create awesome commands without being bloated in size.
 
@@ -10,16 +10,12 @@ When an administrator has joined the server, the system will send the administra
 
 # Creating a Package
 We reccomend you make use of our [API](api.md) and [UI Generator](ui.md) to prevent your package(s) from being bloated in size.
-
 ___
-
 ## Requirements
 * Roblox Studio
 * Commander
 * Luau Knowledge
-
 ___
-
 # Getting Started
 To get started, create a `ModuleScript` and follow the format located below.
 
@@ -48,9 +44,7 @@ end
 ## Location Options
 * Server
 * Player
-
 ___
-
 # Making a Kick Command
 
 ## Finding a Target Using The API
@@ -83,7 +77,6 @@ end
 return module
 ```
 ___
-
 Congratulations! You've successfully made your first package!
 
 ?> **Challenge** <br> Are you able to make it so it will ask the administrator for a reason to kicking the target?

@@ -13,8 +13,10 @@ Generator.newList("List1", UI)
 ```
 
 #### Functions
-##### listObject.addItem(Name: string, Content: string)
+#### listObject.addItem(Name: string, Content: string)
 Adds an item to the list.
+
+___
 
 ### Generator.newWindow(Name: string, Title: string, Attachment: instance)
 Creates a window.
@@ -25,17 +27,24 @@ Generator.newWindow("Window1", "Hello world!")
 ```
 
 #### Functions
-##### windowObject.close()
+#### windowObject.close()
 Closes the window.
 
-##### windowObject.open()
+#### windowObject.open()
 Opens the window.
 
 #### windowObject.setTitle(Title: string)
 Changes the window's title.
 
+___
+
 ### Generator.newInputModal(Title: string)
 Creates an input modal.
+
+```lua
+Generator.newInputModal("Hello world!")
+```
+___
 
 ### Generator.newPackageButton(Title: string, Description: string, Parent: instance, Callback: function)
 Creates a button for packages.

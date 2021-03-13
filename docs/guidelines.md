@@ -39,3 +39,10 @@ end
 ```
 
 With this, the code won't yield at all, which means the code after our command processor will be ran instantly. And our logging mechanism won't work as expected, creating false positives. Which is not really ideal for the users.
+
+### Avoid fuzzy searching
+We love developers, we helped them with our powerful API, so they do not have to write a brand new system solely for their own purposes, decreasing the average package size. However, there's situations where you need to create your own system, such as searching for an instance in Workspace. While it is simple to implement searching, there's one philosophy you should always follow -- Accuracy.
+
+With fuzzy search, the actual accuracy is decreased rather than increased. As fuzzy searching does not search based on the order of the word, it usually find the number of the character in the code without checking the order, and then calculate the relevancy. So, the actual searched item is not accurate and not predictable.
+
+Instead, we prefer something much accurate, like linear search.

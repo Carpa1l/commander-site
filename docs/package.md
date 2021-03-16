@@ -4,7 +4,7 @@ Packages are commands! This will teach you how to correctly make your own packag
 Thanks to our mature [API](api.md) packages can easily communicate with the client. That being said, making a package is much easier than you think, a package can be made if you understand Luau and make use of our [API](api.md) and [UI Generator](ui.md)!
 ___
 # How Packages Work
-When packages are being loaded by the server, the system will verify the package, whether it is correctly formatted and error-free. After that, the system will assign system packages like the [API](api.md), so the package can make use of the pre-built libraary to create awesome commands without being bloated in size.
+When packages are being loaded by the server, the system will verify the package, whether it is correctly formatted and error-free. After that, the system will assign system packages like the [API](api.md), so the package can make use of the pre-built library to create awesome commands without being bloated in size.
 
 When an administrator has joined the server, the system will send the administrator a list of packages to be created in UI, with their corresponding location (Player or Server).
 

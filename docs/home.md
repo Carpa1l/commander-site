@@ -11,7 +11,13 @@ You can install Commander by clicking [this link](https://github.com/va1kio/comm
 
 Once downloaded, open a game in Roblox Studio.
 
-From there, go to the `View` tab and click on `Explorer` and `Command Bar`.
+>! API Services must be enabled for Commander to work correctly!
+
+To turn on API services go to the `Home` tab and click on `Game Settings` and find `Security` and enable `API Services`!
+
+![image](https://user-images.githubusercontent.com/76509586/111884437-a6668f80-898f-11eb-881d-bc36c6401fe7.png)
+
+After that, go to the `View` tab and click on `Explorer` and `Command Bar`.
 
 ![image](https://user-images.githubusercontent.com/76509586/110735189-e50d8480-81ee-11eb-8e7d-d8ec4330fc82.png)
 

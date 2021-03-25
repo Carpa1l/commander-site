@@ -11,7 +11,7 @@ You can install Commander by clicking [this link](https://github.com/va1kio/comm
 
 Once downloaded, open a game in Roblox Studio.
 
->! API Services must be enabled for Commander to work correctly!
+!> API Services must be enabled for Commander to work correctly!
 
 To turn on API services go to the `Home` tab and click on `Game Settings` and find `Security` and enable `API Services`!
 
@@ -73,7 +73,7 @@ To set a specific user to a corresponding administrator level, simply change the
 }
 ```
 
-> ! Using Commander in a group game? Be sure to remove the entry with `[game.CreatorId]`.
+!> Using Commander in a group game? Be sure to remove the entry with `[game.CreatorId]`.
 
 Congratulations! You've set up and configured Commander. If you want to setup group rank, read the article below.
 

@@ -25,7 +25,7 @@ Right click on your `Explorer` and press `Insert from File`.
 
 ![image](https://user-images.githubusercontent.com/76509586/110734924-657fb580-81ee-11eb-8b4d-9c5eec785343.png)
 
-Locate your `Command.RBXM` file.
+Locate your `Commander.RBXM` file.
 
 Once Commander is inserted your Explorer should look like this,
 
@@ -59,12 +59,46 @@ To add administrators simply follow this format,
 },
 ```
 
-The different types of admin levels are;
-* Owner
-* Admin
-* Moderator
+There are three types of administrator levels built-in, which is:
 
-Congratulations! You've set up and configured Commander!
+- Owner
+- Admin
+- Moderator
+
+To set a specific user to a corresponding administrator level, simply change the string after the Username/UserId to the level's name, like this:
+
+```lua
+["Admins"] = {
+  ["nana_kon"] = "Moderator"
+}
+```
+
+> ! Using Commander in a group game? Be sure to remove the entry with `[game.CreatorId]`.
+
+Congratulations! You've set up and configured Commander. If you want to setup group rank, read the article below.
+
+# Adding group rank to Commander
+
+Since Developer Preview 2 (A1150), we've added support for group-based permission, so you can set a specific group rank to be able to use Commander, here's a brief example of how:
+
+```lua
+["Admins"] = {
+  ["12312312:50"] = "Owner"
+}
+```
+
+In the example above, Commander will automatically set all users who is in the group with Id `12312312` and with rank `50` to Owner.
+
+Of course, we've also added support for `greater than or equal to` and `lesser than or equal to`for group ranks. Here's how:
+
+```lua
+["Admins"] = {
+  ["12312312:>50"] = "Owner",
+  ["12312312:<49"] = "Moderator",
+}
+```
+
+The example above will tell Commander to automatically set all users who is in the group and with rank equal to or greater than 50 to Owner. Meanwhile will also set all users who is in the group but with rank equal to or lesser than 40 to Moderator.
 
 # Learn More
 You can learn more about the API, the UI, and packages in the top.

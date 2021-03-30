@@ -11,9 +11,9 @@ You can install Commander by clicking [this link](https://github.com/va1kio/comm
 
 Once downloaded, open a game in Roblox Studio.
 
-!> API Services must be enabled for Commander to work correctly!
+!< We recommend you enable API Services to save data.
 
-To turn on API services go to the `Home` tab and click on `Game Settings` and find `Security` and enable `API Services`!
+To turn on API Services go to the `Home` tab and click on `Game Settings` and find `Security` and enable `API Services`!
 
 ![image](https://user-images.githubusercontent.com/76509586/111884437-a6668f80-898f-11eb-881d-bc36c6401fe7.png)
 

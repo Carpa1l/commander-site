@@ -17,7 +17,7 @@ Depends on who you are, you might want to ask me why not just fully rely on Robl
 Note how I mention that I use GitHub for Commander? That's where the real trick comes. There's a fun feature called GitHub action, which can be used for automating PRs, commits, et cetera. What if you can achieve an automated processing and publishing system with GitHub actions? It surely sounds workable and will solve the issue mentioned above, but we honestly don't know. While yes, it will definitely work if it's only publishing, but processing? It requires an actual machine with Rojo built in, and we have to use something that can interact with CLIs, like SSH.
 
 Here's a brief draft of how it will be implemented:
-
+```
 User pushed a new commit -> An agent machine pulls the commit and conduct an unit test -> {
 
 ​	-> If it succeeded -> Add the installer info (eg readme and license) -> Group in folder -> Update existing model
@@ -25,6 +25,7 @@ User pushed a new commit -> An agent machine pulls the commit and conduct an uni
 ​	-> If it failed -> Reject the commit
 
 }
+```
 
 Is it workable and possible? Of course, but is it sustainable, especially for communities like us who barely have any profit? Nope.
 
@@ -35,3 +36,7 @@ This implementation requires an actual machine with Rojo built in, as mentioned 
 There's really no next step for people like us who suffer from this issue. At the end, Rojo is an unofficial thing. It is not originally made by Roblox, nor is maintained by Roblox. It's very unrealistic for Roblox to add support for Rojo in Studio or maintain Rojo.
 
 We can probably just complain about how restrictive Roblox is in this aspect, nothing else.
+
+___
+
+(I am not a native speaker, grammatical problems may appear in this document)

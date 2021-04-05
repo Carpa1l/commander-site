@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev v1",
     "docs:build": "vuepress build v1"
   },
-  "author": "",
+  "author": "nana_kon",
   "license": "MIT",
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.8.2",

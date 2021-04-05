@@ -2,7 +2,7 @@
 
 * Modules
 
-  * [Generator](ui.md)
+  * [Latte](latte.md)
   * [Packages API](api.md)
   
 * [Making packages](package.md)

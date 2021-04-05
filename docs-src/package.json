@@ -1,0 +1,16 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentation for Commander",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev v1",
+    "docs:build": "vuepress build v1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "vuepress": "^1.8.2"
+  }
+}

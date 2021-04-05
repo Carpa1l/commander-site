@@ -39,7 +39,6 @@ module.exports = {
 		],
 		
 		// plugins
-		plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom'],
-		dest: 'public',
+		plugins: ['@vuepress/back-to-top', '@vuepress/medium-zoom']
 	}
 }

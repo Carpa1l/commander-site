@@ -4,8 +4,8 @@
   "description": "Documentation for Commander",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vuepress dev v1",
-    "docs:build": "vuepress build v1"
+    "dev": "vuepress dev v1",
+    "build": "vuepress build v1"
   },
   "author": "nana_kon",
   "license": "MIT",

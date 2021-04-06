@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Commander Docs</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Official documentation for Commander For Roblox">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
   <link rel="stylesheet" href="https://unpkg.com/docsify-vuepress-theme/dist/style.min.css" />
@@ -13,12 +11,11 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: 'Commander for Roblox',
-      repo: 'https://github.com/va1kio/commander/',
-      loadNavbar: "navbar.md",
-      homepage: "home.md",
+      homepage: "404.md",
       themeColor: "#409D82",
-      notFoundPage: true,
+      notFoundPage: '404.md',
+      executeScript: true,
+      hideSidebar: true,
       themeable: {
         readyTransition : true, // default
         responsiveTables: true  // default

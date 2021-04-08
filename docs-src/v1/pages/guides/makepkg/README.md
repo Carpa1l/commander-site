@@ -1,28 +1,34 @@
-# Information
-Packages are commands! This will teach you how to correctly make your own package, the example we will be doing will kick a player!
+# Making packages
+:::warning
+Making a package requires a large amount of knowledge of Luau
+:::
 
-Thanks to our mature [API](api.md) packages can easily communicate with the client. That being said, making a package is much easier than you think, a package can be made if you understand Luau and make use of our [API](api.md) and [UI Generator](ui.md)!
-___
-# How Packages Work
-When packages are being loaded by the server, the system will verify the package, whether it is correctly formatted and error-free. After that, the system will assign system packages like the [API](api.md), so the package can make use of the pre-built library to create awesome commands without being bloated in size.
+Packages are modules with code that will be ran when the user executes the corresponding command. 
 
-When an administrator has joined the server, the system will send the administrator a list of packages to be created in UI, with their corresponding location (Player or Server).
+By default, Commander ship with packages that are useful to the majority, but if you find there's not enough packages, feel free to visit our [Discord community](https://discord.gg/RzxxD7YCaU), or you can create your own.
 
-# Creating a Package
-We recommend you make use of our [API](api.md) and [UI Generator](ui.md) to prevent your package(s) from being bloated in size.
-___
+**This guide will introduce and teach you how to make your own package with a kick command as an example.**
+
+## How packages work
+When Commander is being loaded, the system itself will fetch every packages inside the `Packages` folder, and then verify whether the package is both correctly formatted and error-free. Then, the system will assign all system packages such as the [API](../../ref/api/) to the package, and finally call `.Execute` on the package with type `firstRun`.
+
+When an administrator has joined the game, the system will first fetch commands that can be ran by the user, and finally send the list of the packages to be created in the panel with their corresponding location.
+
+### Location options
+By default, there are **two** locations for packages to load in, either **Server** or **Player**.
+
 ## Requirements
 * Roblox Studio
-* Commander
-* Luau Knowledge
-___
-# Getting Started
-To get started, create a `ModuleScript` and follow the format located below.
+* An installation of Commander
+* Luau knowledge
+
+## Getting started
+To get started, create a `ModuleScript` with the name `Kick`. and then follow the format located below:
 
 ```lua
 local module = {
-	Name = "Package Name",
-	Description = "Package Description",
+	Name = "Kick",
+	Description = "Kicks a player from the server",
 	Location = "Player"
 }
 
@@ -34,57 +40,110 @@ return module
 ```
 
 :::tip
-Packages can be ran when being loaded, so the package can register functions and events like PlayerAdded via the [API](api.md). **As a result, you should have an if statement to ignore the first run**, which is below.
+As mentioned above, the system will call the package's `.Execute` function at load time, so the system can verify information, as well as running specific first-run only code from the package. As a result, you should have an if statement in order to separate from the actual command execution from the first run. An example of that can be found below.
 :::
 
 ```lua
 if Type == "command" then
-
+	-- Command execution code goes here
+elseif Type == "firstRun" then
+	-- First run code goes here
 end
 ```
 
-## Location Options
-* Server
-* Player
-___
-# Making a Kick Command
+### Finding the target
+In most cases, you should use the built-in player finder. However, if you happened to create your own player finder, please **be sure not** to use fuzzy search for finding the player.
 
-## Finding a Target Using The API
-We encourage using the [API](api.md)'s built-in player finder in order to prevent your package from being bloated. If your package is in the `Player` location, the `Attachment` argument will be the target user, in this case, you have to find whether the target exists in the game or not.
-
-:::danger
-If you are using a custom player finder, **DO NOT** use fuzzy search or any other kind to find the player, it is heavily recommended to compare whether the `Attachment` argument completely matches the player's name.
+:::tip
+If your command is inside the **Player** location, the `Attachment` parameter will be the input of the `TARGET` TextField.
 :::
 
-## Kicking the Target
-After implementing the target search in your package, you can now create the payload, by default, the built-in player finder returns the player instance, and if there's no match, it will return nil. As a result, **you need to setup and if statement to check whether the result is nil or not**. If the result is not nil you will need to kick the target.
-
-After doing so, your package should look something similar to this,
+After the player finder, your code should look something similar to this:
 
 ```lua
 local module = {
 	Name = "Kick",
-	Description = "Kicks a player",
+	Description = "Kicks a player from the server",
 	Location = "Player"
 }
 
 module.Execute = function(Client, Type, Attachment)
 	if Type == "command" then
-		local target = modules.API.getPlayerWithName(Attachment) -- Check if the player is in game, if so return the player's name.
-		
+		local target = module.API.getPlayerWithName(Attachment)
 		if target then
 			target:Kick("Kicked by " .. Client.Name)
-		end -- If statement checking if the API does not return nil.
+			return true
+		end
+		return false
 	end
 end
 
 return module
 ```
-___
-Congratulations! You've successfully made your first package!
 
-:::tip Challenge
-Are you able to make it so it will ask the administrator for a reason to kicking the target?
+:::warning
+See the incompatibility warning after executing the command? This is because you did not return a boolean after the command is ran. Return `true` when the command is ran successfully, and return `false` when the command failed or was cancelled by user, such as a modal. 
 :::
 
-> If you require any assistance you can join the [Discord server](https://discord.com/invite/RzxxD7YCaU)!
+### Getting further
+You've implemented a simple kick command, but the administrator can not put a reason to justify the kick. So, what to do?
+
+That's where the `API.sendModalToPlayer` kicks in. This function will send a request to the client, to create a new input modal for user to put text there, as well as a RBXScriptSignal so the command can halt until an input has been submitted.
+
+:::danger Read the docs!
+Callback hell affect your code readability and maintainability, as `API.sendModalToPlayer` returns a RBXScriptSignal, you can simply just use `:Wait()` instead of using `:Connect`.
+
+Apart from that, we **highly** recommend to use `:Wait()` for this, you can learn more by reading our [Code of Conduct](../code/)
+:::
+
+With `API.sendModalToPlayer`, your code should look something like this:
+```lua
+local module = {
+	Name = "Kick",
+	Description = "Kicks a player from the server",
+	Location = "Player"
+}
+
+module.Execute = function(Client, Type, Attachment)
+	if Type == "command" then
+		local target = module.API.getPlayerWithName(Attachment)
+		local input = module.API.sendModalToPlayer(Client, "Reason?"):Wait()
+		if not target then return false end
+		if not input then return false end
+		target:Kick("Kicked by " .. Client.Name .. "\nReason: " .. input)
+		return true
+	end
+end
+
+return module
+```
+
+**However!** We are still not done yet, `.sendModalToPlayer` by default does **not** filter the actual input. In order to compile with Roblox's safety guidelines, filter the input via `API.filterText`, which will looks something like this:
+
+```lua
+local module = {
+	Name = "Kick",
+	Description = "Kicks a player from the server",
+	Location = "Player"
+}
+
+module.Execute = function(Client, Type, Attachment)
+	if Type == "command" then
+		local target = module.API.getPlayerWithName(Attachment)
+		local input = module.API.sendModalToPlayer(Client, "Reason?"):Wait()
+		if not target then return false end
+		if not input then return false end
+		local status, result = module.API.filterText(Client, input)
+		if not status then return false end
+		target:Kick("Kicked by " .. Client.Name .. "\nReason: " .. result)
+		return true
+	end
+end
+
+return module
+```
+
+:tada: Congratulations, you have successfully made your first package!
+
+## Continue...
+Our [API](../../ref/api/) documentation has it all for you to discover, if you have a question or encountered a problem with your own package, feel free to ask in our [Discord Community](https://discord.gg/RzxxD7YCaU).

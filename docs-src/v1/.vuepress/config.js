@@ -8,7 +8,7 @@ module.exports = {
 		
 		// docs git repo
 		docsRepo: 'va1kio/commander-site',
-		docsDir: 'docs/v1',
+		docsDir: 'docs-src/v1',
 		editLinks: true,
 		editLinkText: 'Help us improve this page!',
 		

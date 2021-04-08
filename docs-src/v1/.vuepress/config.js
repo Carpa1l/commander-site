@@ -24,7 +24,7 @@ module.exports = {
 		
 		// nav
 		nav: [
-			{ text: 'Home', link: '/pages/getstarted/' },
+			{ text: 'Home', link: '/pages/home/' },
 			{
 				text: 'API reference',
 				ariaLabel: 'API reference',
@@ -37,7 +37,9 @@ module.exports = {
 				text: 'Guides',
 				ariaLabel: 'Guides',
 				items: [
-				  { text: 'Making packages', link: '/pages/guides/packages/' },
+				  { text: 'Group admins', link: '/pages/guides/groupadmins/' },
+				  { text: 'Installing packages', link: '/pages/guides/installpkg/' },
+				  { text: 'Making packages', link: '/pages/guides/makepkg/' },
 				  { text: 'Code of Conduct', link: '/pages/guides/code/' },
 				]
 			},

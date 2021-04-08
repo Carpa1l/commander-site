@@ -4,7 +4,7 @@ heroImage: /images/icon.png
 heroText: Commander 4
 tagline: Moderation Reimagined
 actionText: Get Started →
-actionLink: /pages/getstarted/
+actionLink: /pages/home/
 features:
 - title: Open source
   details: Commander is fully free and open source under the MIT license

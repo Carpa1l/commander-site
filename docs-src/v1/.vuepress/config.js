@@ -17,6 +17,11 @@ module.exports = {
 		lastUpdated: 'Last Updated',
 		smoothScroll: true,
 		
+		// markdown extensions
+		markdown: {
+			lineNumbers: true,	
+		},
+		
 		// nav
 		nav: [
 			{ text: 'Home', link: '/pages/getstarted/' },

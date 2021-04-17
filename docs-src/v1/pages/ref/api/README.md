@@ -1,4 +1,8 @@
 # Packages API
+:::warning Outdated
+This page does not fully cover the current API, a rewrite is on the way.
+:::
+
 The API is used for packages to communicate or interact with players without making your packages bloated in size.
 
 You do not need to initialise the API module in your package as the system loader does it for you already. To access it, simply index through the table returned once required, like: `module.API`

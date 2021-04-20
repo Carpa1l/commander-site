@@ -8,6 +8,9 @@ The API module in the source code provides an interface for packages and externa
 
 For your information, you do not need to initialise the API module in your package as Commander already does tht for you, access API by indexing thru `module.API`, where module is the variable of the table you return in a package.
 
+## Table of Content
+[[toc]]
+
 ## Categories
 To ensure API will always have a high maintainability, we've seperated API methods into different kind of categories. Player-related API methods are inside the Player category, here is a list of the current available API categories:
 

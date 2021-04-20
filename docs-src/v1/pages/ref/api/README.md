@@ -84,6 +84,19 @@ Gets a player by its partial name, case insensitive
 |:---:|:---:|:---:|
 |Player|Player/nil|The player instance that the API found, return nil if there's no result|
 
+#### getCharacter
+Returns the character of the player instance if is valid and loaded.
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Player|`required`|Player|The player that needs to be checked|
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Character|Model/nil|The character of the player, returns nil if not found, or not fully loaded|
+
 #### getUserIdFromName
 Gets a player's UserId from it's name.
 
@@ -112,3 +125,128 @@ Filters a string so it will be moderation-friendly
 |Status|Boolean|The status of the filter call|
 |Result|String|The actual filtered message, or the error message if Status is `false`
 
+#### message
+Sends a centered message to the corresponding player(s).
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|To|`required`|Player/String|The player(s) to send the message to|
+|From|`required`|String|The author of the message|
+|Content|`required`|String|The message to be sent|
+|Duration|10|Number|The duration of the message to be dismissed in seconds|
+
+#### hint
+Sends a hint to the corresponding player(s).
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|To|`required`|Player/String|The player(s) to send the hint to|
+|From|`required`|String|The author of the hint message|
+|Content|`required`|String|The hint message to be sent|
+|Duration|10|Number|The duration of the hint to be dismissed in seconds|
+
+#### notify
+Sends a notification to the corresponding player(s).
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|To|`required`|Player/String|The player(s) to send the notification to|
+|From|`required`|String|The author of the notification message|
+|Content|`required`|String|The notification message to be sent|
+
+#### notifyWithAction
+Sends a notification to the corresponding player(s), but allows custom callback when interacted by user.,
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|To|`required`|Player/String|The player(s) to send the notification to|
+|Type|`required`|String|The main callback of the notification, where `Reply` will have the reply box show up at interaction
+|From|`required`|String|The author of the notification message|
+|Content|`required`|String|The notification message to be sent|
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|BindableEvent|BindableEvent|An event that will be fired when user finished interacting|
+
+#### checkPermission
+Checks whether the user has permission to the corresponding command.
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Client|`required`|Number|The player that needs to be checked|
+|Command|`required`|String|The name of the command that needs to be checked|
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Status|Boolean|The status of the authorization, returns true if user is authorized, and false if not.|
+
+#### getAdminStatus
+Checks whether the user is in authorization
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Client|`required`|Number|The player that needs to be checked|
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Status|Boolean|The status of the authorization, returns true if user is authorized, and false if not.|
+
+#### getAdminLevel
+Checks user's level of authorization
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Client|`required`|Number|The player that needs to be checked|
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Permission|String|The level of authorization the user is in|
+
+#### getAdmins
+Gets a list of administrators defined in the Settings module
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Administrators|Array|An array of all administrators|
+
+#### getAvailableAdmins
+Returns a number of available administrators in server.
+
+##### Returns
+|Name|Types|Description|
+|:---:|:---:|:---:|
+|Administrators|Number|The number of available administrators in server|
+
+#### listenToPlayerAdded
+Register a new callback to PlayerAdded
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Callback|`required`|Function|The function that will be executed on PlayerAdded|
+
+## Global API
+If you plan to integrate your game's system with Commander, you can consider using our global API! Which is stored in `_G.CommanderAPI`.
+
+Please note that the global API is heavily limited as it is meant for only fetching information at the moment, and is sandboxed for security concerns.
+
+Here is the list of all available methods in the global API, the reference of the methods are exactly the same as the one in the builtin API unless specified.
+
+- checkHasPermission
+- checkAdmin
+- getAdminLevel
+- getAvailableAdmins
+- getAdminStatus
+- getAdmins

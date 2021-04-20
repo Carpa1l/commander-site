@@ -1,130 +1,114 @@
-# Packages API
-:::warning Outdated
-This page does not fully cover the current API, a rewrite is on the way.
+# API
+
+:::danger Under construction
+This page is currently under construction and is not 100% covered. If you find any information found in this page misleading and false, please create an issue to address those changes in our documentation repository.
 :::
 
-The API is used for packages to communicate or interact with players without making your packages bloated in size.
+The API module in the source code provides an interface for packages and external code to communicate with Commander, as well as making packages painlessly and flawlessly.
 
-You do not need to initialise the API module in your package as the system loader does it for you already. To access it, simply index through the table returned once required, like: `module.API`
+For your information, you do not need to initialise the API module in your package as Commander already does tht for you, access API by indexing thru `module.API`, where module is the variable of the table you return in a package.
 
-## Methods
-### API.sendModalToPlayer(Player: player, Title: string|nil)
-Sends request to player to prompt an input modal, returns a `BindableEvent`, which will be fired when user submitted data. The bindable will return the user input.
+## Categories
+To ensure API will always have a high maintainability, we've seperated API methods into different kind of categories. Player-related API methods are inside the Player category, here is a list of the current available API categories:
 
-#### Example
-```lua
-module.API.sendModalToPlayer(Player, "What is 1 + 1?"):Connect(function(Input)
-	print(Input)
-end)
--- both works!
-local input = module.API.sendModalToPlayer(Player):Wait()
-print(Input)
-```
+- [Players](#Players)
 
-### API.sendListToPlayer(Player: player, Title: string, Attachment: table)
-Sends request to player to prompt a window with a list.
+To access a category, simply index thru `API` with the category name.
 
-#### Example
-```lua
-module.API.sendListToPlayer(Player, "List", {"Hello world", "Hello, world!"})
-```
+### Players
+The `Players` category holds all available API methods that are related to players. Please note that some of the methods are in Async and will yield if required.
 
-### API.filterText(From: instance, Content: string)
-:::warning
-This method yields
-:::
+#### sendModal
+Sends a modal for user, asking for string input. Returns a BindableEvent.
 
-Filter the content with `TextService`
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Player|`required`|Player|The player instance to send the modal to|
+|Title|`Input required`|String|The title of the modal|
 
-#### Example
-```lua
-print(module.API.filterText(Player, "Goodbye!"))
-```
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|BindableEvent|BindableEvent|An event that will be fired once input is received from client|
 
-### API.getUserIdWithName(Player: string)
-:::warning
-This method yields
-:::
+#### sendList
+Sends a window with a list for user.
 
-Gets the player's identifier with their name
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Player|`required`|Player|The player instance to send the window to|
+|Title|`required`|String|The title of the window|
+|List|`required`|Array|An array of data that will be represented in the window|
 
-#### Example
-```lua
-print(module.API.getUserIdWithName("nana_kon"))
-```
+#### executeWithPrefix
+Executes a function for a specific player, or with 
+a prefix
 
-### API.getCharacter(Player: instance) => Character
-Gets the player's character with their player instance
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Client|`required`|Player|The player who is executing the function
+|Player|`required`|String|The player name of a prefix to execute the function to|
+|Callback|`required`|Function|The function that will be executed|
 
-#### Example
-```lua
-print(module.API.getCharacter(module.API.getPlayerWithName("nana_kon")).Humanoid.Health)
-```
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|Status|Boolean|Returns true if there's a player with the name or the corresponding prefix|
 
-### API.getPlayerWithName(Player: string)
-Gets the player's instance with their name
+#### getPlayerByName
+Gets a player by its name, case insensitive
 
-#### Example
-```lua
-print(module.API.getPlayerWithName("nana_kon").Name)
-```
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Player|`required`|String|The player name to find|
 
-### API.checkAdmin(UserId: integer)
-:::warning
-This method yields depending on the situation
-:::
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|Player|Player/nil|The player instance that the API found, return nil if there's no result|
 
-Determines whether the player is an administrator or not, the method will yield if the administrator table contains usernames instead of identifiers.
+#### getPlayerByNamePartial
+Gets a player by its partial name, case insensitive
 
-#### Example
-```lua
-if module.API.checkAdmin(Player.UserId) then
-	print("They are an admin!")
-end
-```
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Player|`required`|String|The player name to find|
 
-### API.getAdmins()
-Returns a table of administrators
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|Player|Player/nil|The player instance that the API found, return nil if there's no result|
 
-#### Example
-```lua
-for i,v in pairs(module.API.getAdmins()) do
-	print(v)
-end
-```
+#### getUserIdFromName
+Gets a player's UserId from it's name.
 
-### API.doThisToPlayers(Client: instance, Player: string, Callback: function) => Player
-:::danger
-Use this at your own risk, this should not be used in commands that can be extremely abusive
-:::
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Name|`required`|String|The player name|
 
-A lightweight callback processor, accepts "All", "Others", "Random" or the player name.
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|UserId|Number/String|The UserId of the player, will return a string of message if it fails to find|
 
-#### Example
-```lua
-module.API.doThisToPlayers(Client, "All", function(Player)
-	print(Player.Name)
-end)
-```
+#### filterString
+Filters a string so it will be moderation-friendly
 
-### API.getAvailableAdmins()
-:::warning
-This method yields depending on the situation
-:::
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|From|`required`|Player|The author of the message|
+|Content|`required`|String|The message that needs to be filtered|
 
-Returns the number of administrators in server, this method will yield if the administrator table contains usernames instead of identifiers, as it relies on `API.checkAdmin(Player)`
+###### Returns
+|Name|Types|Description
+|:---:|:---:|:---:|
+|Status|Boolean|The status of the filter call|
+|Result|String|The actual filtered message, or the error message if Status is `false`
 
-#### Example
-```lua
-print("There are " .. module.API.getAvailableAdmins() .. " administrators available!")
-```
-
-### API.registerPlayerAddedEvent(Function: function)
-Adds the function into the `Players.PlayerAdded` event, useful if you are implementing something that needs to be checked for every player. When a player joins, the function will be called along with the joined player's instance.
-
-#### Example
-```lua
-module.API.registerPlayerAddedEvent(function(Player)
-	warn(Player.Name .. " joined the game.")
-end)
-```

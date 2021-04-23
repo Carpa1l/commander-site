@@ -42,6 +42,7 @@ module.exports = {
 				  { text: 'Installing packages', link: '/pages/guides/installpkg/' },
 				  { text: 'Making packages', link: '/pages/guides/makepkg/' },
 				  { text: 'Code of Conduct', link: '/pages/guides/code/' },
+				  { text: 'Submission guidelines', link:'/pages/guides/submit/' }
 				]
 			},
 		],

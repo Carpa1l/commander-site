@@ -176,6 +176,15 @@ Sends a notification to the corresponding player(s), but allows custom callback 
 |:---:|:---:|:---:|
 |BindableEvent|BindableEvent|An event that will be fired when user finished interacting|
 
+#### setTransparency
+Register a new callback to PlayerAdded
+
+##### Parameters
+|Name|Default|Types|Description|
+|:---:|:---:|:---:|:---:|
+|Character|`required`|Model|The character model to modify|
+|TransparencyValue|`required`|Number|The transparency value to set|
+
 #### checkPermission
 Checks whether the user has permission to the corresponding command.
 

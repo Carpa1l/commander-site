@@ -31,6 +31,7 @@ module.exports = {
 				items: [
 				  { text: 'Package API', link: '/pages/ref/api/' },
 				  { text: 'UI Toolkit', link: '/pages/ref/ui/' },
+				  { text: 'Others', link: '/pages/ref/other/' },
 				]
 			},
 			{

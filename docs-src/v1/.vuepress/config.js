@@ -25,13 +25,14 @@ module.exports = {
 		// nav
 		nav: [
 			{ text: 'Home', link: '/pages/home/' },
+			{ text: 'Roadmap', link: '/pages/roadmap/'},
 			{
 				text: 'API reference',
 				ariaLabel: 'API reference',
 				items: [
 				  { text: 'Package API', link: '/pages/ref/api/' },
 				  { text: 'UI Toolkit', link: '/pages/ref/ui/' },
-				  { text: 'Others', link: '/pages/ref/other/' },
+				  { text: 'Others', link: '/pages/ref/others/' },
 				]
 			},
 			{

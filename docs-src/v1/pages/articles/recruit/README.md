@@ -1,6 +1,6 @@
 # Recruitment
 
-This page lists all available jobs in Commander, if you are interested into working with us, and you have fullfilled the requirements for the corresponding position, send us a mail at [nakogls@outlook.com](mailto:nakogls@outlook.com).
+This page lists all available jobs in Commander, if you are interested into working with us, and you have fullfilled the requirements for the corresponding position, send us a mail at [nanako.matsumooo@outlook.jp](mailto:nanako.matsumooo@outlook.jp).
 
 Please note that the following positions below do not guarantee any sort of payment, you should not consider applying if you prefer money reward.
 

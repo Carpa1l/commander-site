@@ -39,6 +39,7 @@ module.exports = {
 				text: 'Guides',
 				ariaLabel: 'Guides',
 				items: [
+				  { text: 'Configure', link: '/pages/guides/configure/' },
 				  { text: 'Group admins', link: '/pages/guides/groupadmins/' },
 				  { text: 'Installing themes', link: '/pages/guides/installthemes/' },
 				  { text: 'Installing packages', link: '/pages/guides/installpkg/' },

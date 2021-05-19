@@ -6,7 +6,7 @@ Please note this document is subject to change and features listed in this page 
 # 1.5.0 ???
 |Name|Description|Status|
 |:--:|:--|:--:|
-|???|???|???|
+|???|???|:no_entry_sign: Cancled|
 
 # 1.4.0 Lilium
 |Name|Description|Status|
